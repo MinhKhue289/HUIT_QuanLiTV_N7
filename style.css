@@ -1,0 +1,200 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    /* Removed padding-bottom and footer positioning */
+
+    /* Flexbox for sticky footer */
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    min-height: 100vh; /* Minimum height is 100% of viewport height */
+}
+
+.wrapper {
+    /* This wrapper will contain all content *except* the footer */
+    /* It doesn't need specific flex properties here */
+}
+
+header {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-grow: 1; /* Allows the main content area to take up available space, pushing footer down */
+    flex-shrink: 0; /* Prevent container from shrinking */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #4CAF50;
+    margin: 10px auto 0;
+    border-radius: 1.5px;
+}
+
+.menu-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between grid items */
+}
+
+.menu-item {
+    background-color: #fff;
+    /* padding: 25px; removed padding here, moved to item-content */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Hide overflow during transition */
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item h3 {
+    margin: 0; /* Adjust margin */
+    color: #00796B; /* Teal color */
+    font-size: 1.3em;
+    padding: 25px 25px 15px 25px; /* Add padding */
+    border-bottom: 2px solid #00796B;
+    cursor: pointer; /* Indicate clickable */
+    position: relative; /* Needed for ::after positioning */
+    user-select: none; /* Prevent text selection on click */
+}
+
+/* Add expand/collapse icon */
+.menu-item h3::after {
+    content: '+'; /* Plus sign when closed */
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Change icon when active (open) */
+.menu-item.active h3::after {
+    content: '-'; /* Minus sign when open */
+}
+
+.menu-item .item-content {
+    padding: 0 25px 25px 25px; /* Add padding */
+    display: none; /* Hidden by default */
+    /* Transition height might be complex, simple display toggle for now */
+    /* For smooth slide toggle, need JS to control height/max-height */
+}
+
+.menu-item.active .item-content {
+    display: block; /* Shown when parent has 'active' class */
+}
+
+
+.menu-item p {
+    margin-bottom: 10px;
+    margin-top: 15px; /* Add margin after heading */
+    flex-grow: 1;
+}
+
+.menu-item ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.menu-item li {
+    margin-bottom: 5px;
+}
+
+.code-ref {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed #eee;
+    display: block; /* Ensure it takes full width */
+}
+
+.code-ref code {
+    background-color: #eef;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #777;
+    font-size: 0.9em;
+    background-color: #e0e0e0; /* Light grey */
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    /* Removed absolute positioning */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .menu-item {
+       /* padding handled by item-content */
+    }
+
+    .menu-item h3 {
+        font-size: 1.2em;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .menu-item h3::after {
+         right: 20px;
+    }
+
+    .menu-item .item-content {
+        padding: 0 20px 20px 20px;
+    }
+}

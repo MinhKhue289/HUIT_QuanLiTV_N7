@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải thích các Chức Năng Chương Trình Quản Lý Thư Viện</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper"> <header>
+            <h1>Chương Trình Quản Lý Thư Viện HUIT - Đồ Án Kết Thúc Môn Cấu Trúc Dữ Liệu Và Giải Thuật </h1>
+            <p>Giải thích các chức năng của Menu nhóm 7</p>
+            <p>GVHD : 	Nguyễn Thị Thùy Trang</p>
+            <p>Mã học phần : 	0101101943</p>
+            <p>TKB chính thức: 	Thứ Hai , tiết 10 – 12  </p>
+        </header>
+
+        <main class="container">
+            <h2>Các Lựa Chọn Trong Menu Chính</h2>
+
+            <section class="menu-explanation">
+                <div class="menu-item">
+                    <h3>1. Nhập từ bàn phím</h3>
+                    <div class="item-content"> <p>Chức năng này cho phép người dùng nhập thông tin chi tiết của một cuốn sách mới (Mã sách, Tên sách, Tác giả, NXB, Năm XB, Thể loại) trực tiếp từ bàn phím. Sau khi nhập xong, cuốn sách này sẽ được thêm vào cuối danh sách liên kết hiện tại.</p>
+                        <span class="code-ref">Gọi hàm: <code>inputBook</code>, <code>createSNode</code>, <code>insertTail</code></span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>2. Đọc file</h3>
+                    <div class="item-content"> <p>Chức năng này đọc dữ liệu sách từ file "sach.txt". Khi được gọi, chương trình sẽ xóa toàn bộ dữ liệu sách hiện có trong bộ nhớ (danh sách liên kết), sau đó đọc từng dòng từ file và thêm chúng vào danh sách. File được kỳ vọng có định dạng các trường phân cách bởi ký tự '|'.</p>
+                         <span class="code-ref">Gọi hàm: <code>readFromFile</code></span>
+                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>3. Ghi file</h3>
+                     <div class="item-content"> <p>Chức năng này lưu trữ toàn bộ dữ liệu sách hiện có trong danh sách liên kết vào file "sach.txt". File cũ sẽ bị ghi đè (xóa nội dung cũ và ghi lại từ đầu). Mỗi cuốn sách sẽ được ghi trên một dòng riêng biệt, các thông tin được phân cách bởi ký tự '|'.</p>
+                         <span class="code-ref">Gọi hàm: <code>writeToFile</code></span>
+                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>4. Xuất danh sách</h3>
+                    <div class="item-content"> <p>Chức năng này hiển thị tất cả sách hiện đang có trong danh sách liên kết lên màn hình console dưới dạng bảng, giúp người dùng dễ dàng xem toàn bộ dữ liệu sách.</p>
+                         <span class="code-ref">Gọi hàm: <code>showSList</code>, <code>xuatBook</code></span>
+                     </div>
+                </div>
+
+                 <div class="menu-item">
+                    <h3>5. Thêm/Xóa phần tử tại 3 vị trí</h3>
+                    <div class="item-content"> <p>Đây là một menu con cho phép người dùng lựa chọn các thao tác thêm hoặc xóa sách tại các vị trí cụ thể trong danh sách:</p>
+                        <ul>
+                            <li>**Thêm đầu/cuối:** Nhập thông tin sách và thêm vào đầu hoặc cuối danh sách.</li>
+                            <li>**Thêm giữa:** Nhập thông tin sách và vị trí muốn chèn, thêm sách vào vị trí đó.</li>
+                            <li>**Xóa đầu/cuối:** Xóa cuốn sách đầu tiên hoặc cuối cùng khỏi danh sách.</li>
+                            <li>**Xóa giữa:** Nhập vị trí muốn xóa, xóa cuốn sách tại vị trí đó.</li>
+                        </ul>
+                         <span class="code-ref">Gọi hàm: <code>insertHead</code>, <code>insertTail</code>, <code>insertGiua</code>, <code>deleteHead</code>, <code>deleteTail</code>, <code>deleteMiddle</code></span>
+                     </div>
+                </div>
+
+                 <div class="menu-item">
+                    <h3>6. Sắp xếp danh sách</h3>
+                    <div class="item-content"> <p>Chức năng này sắp xếp danh sách sách theo tiêu chí: giảm dần theo Thể loại. Đối với các sách cùng Thể loại, chúng sẽ được sắp xếp tăng dần theo Mã sách. Chương trình sử dụng thuật toán sắp xếp chọn (Selection Sort).</p>
+                         <span class="code-ref">Gọi hàm: <code>selectionSort</code>, <code>soSanh</code></span>
+                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>7. Thêm theo thứ tự sắp xếp</h3>
+                    <div class="item-content"> <p>Chức năng này cho phép nhập một cuốn sách mới và tự động chèn nó vào danh sách sao cho vẫn giữ được trật tự sắp xếp đã xác định ở mục 6 (giảm theo Thể loại, tăng theo Mã sách).</p>
+                         <span class="code-ref">Gọi hàm: <code>inputBook</code>, <code>insertSorted</code>, <code>createSNode</code>, <code>soSanh</code></span>
+                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>8. Thống kê theo tác giả - NXB</h3>
+                    <div class="item-content"> <p>Thực hiện thống kê và in ra màn hình số lượng sách của mỗi Tác giả tại mỗi Nhà xuất bản. (Lưu ý: kết quả có thể lặp lại nếu một Tác giả có nhiều sách ở cùng NXB).</p>
+                         <span class="code-ref">Gọi hàm: <code>ThongKeTheoTacGiaNXB</code></span>
+                     </div>
+                </div>
+
+                 <div class="menu-item">
+                    <h3>9. Tìm NXB có số sách ít nhất</h3>
+                     <div class="item-content"> <p>Chức năng này đếm số sách của từng Nhà xuất bản trong danh sách, sau đó tìm ra NXB (hoặc các NXB nếu có nhiều NXB cùng số sách ít nhất) có số lượng sách thấp nhất và hiển thị tên NXB đó cùng số lượng.</p>
+                         <span class="code-ref">Gọi hàm: <code>NXBItSachNhat</code></span>
+                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>10. Thống kê theo năm xuất bản</h3>
+                    <div class="item-content"> <p>Thực hiện thống kê và in ra màn hình số lượng sách theo từng Năm xuất bản và từng Nhà xuất bản. (Lưu ý: kết quả có thể lặp lại nếu có nhiều sách cùng Năm XB và NXB).</p>
+                         <span class="code-ref">Gọi hàm: <code>ThongKeTheoNamNXB</code></span>
+                     </div>
+                </div>
+
+                 <div class="menu-item">
+                    <h3>11. Thống kê theo thể loại</h3>
+                     <div class="item-content"> <p>Đếm số lượng sách cho từng Thể loại duy nhất có trong danh sách và hiển thị kết quả.</p>
+                         <span class="code-ref">Gọi hàm: <code>DemsoluongTheLoai</code></span>
+                     </div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>12. Tìm sách theo điều kiện</h3>
+                     <div class="item-content"> <p>Tìm kiếm và hiển thị các cuốn sách thỏa mãn đồng thời hai điều kiện: Tên sách có chứa cụm từ "lap trinh" (không phân biệt hoa thường) VÀ Nhà xuất bản là "DHQG" hoặc "KHKT".</p>
+                         <span class="code-ref">Gọi hàm: <code>timSachTheoDieuKien</code>, <code>toLowerString</code>, <code>strstr</code>, <code>strcmp</code></span>
+                     </div>
+                </div>
+
+                 <div class="menu-item">
+                    <h3>0. Thoát</h3>
+                     <div class="item-content"> <p>Kết thúc chương trình. Trước khi thoát, chương trình sẽ giải phóng bộ nhớ đã cấp phát cho danh sách liên kết.</p>
+                         <span class="code-ref">Giải phóng bộ nhớ, kết thúc hàm <code>process</code></span>
+                     </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>Quản lý thư viện HUIT- Đồ Án Môn Cấu Trúc Dữ liệu Và Giải Thuật - Nhóm 7 </p>
+        </footer>
+    </div> <script src="script.js"></script> </body>
+</html>
